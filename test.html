@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Face Filter - A-Frame + MindAR</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #example-scene { width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <a-scene
+      mindar-face
+      embedded
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+      id="example-scene"
+    >
+      <!-- Kamera -->
+      <a-camera active="false" position="0 0 0"></a-camera>
+      
+      <!-- 3D objekt připevněný na obličej -->
+      <a-entity mindar-face-target="anchorIndex: 1">
+        <!-- Např. 3D model brýlí -->
+        <a-entity
+          gltf-model="https://cdn.jsdelivr.net/gh/aframevr/assets@master/models/boombox/boombox.gltf"
+          position="0 0 0"
+          scale="0.02 0.02 0.02"
+        ></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
