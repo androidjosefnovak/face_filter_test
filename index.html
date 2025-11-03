@@ -2,7 +2,7 @@
 <html lang="cs">
   <head>
     <meta charset="utf-8">
-    <title>MindAR Face Tracking Demo</title>
+    <title>Zábavný AR filtr 😎</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
     <style>
@@ -22,9 +22,23 @@
     >
       <a-camera active="false" position="0 0 0"></a-camera>
 
-      <!-- Obličejová maska připevněná na celou hlavu -->
+      <!-- 🎩 Čepice -->
+      <a-entity mindar-face-target="anchorIndex: 10">
+        <a-cone color="#ff66cc" height="0.5" radius-bottom="0.3" position="0 0.4 0"></a-cone>
+        <a-cylinder color="#000" height="0.05" radius="0.35" position="0 0.15 0"></a-cylinder>
+      </a-entity>
+
+      <!-- 🕶️ Brýle -->
       <a-entity mindar-face-target="anchorIndex: 168">
-        <a-sphere color="red" opacity="0.5" radius="0.4" position="0 0 0"></a-sphere>
+        <a-box color="black" width="0.25" height="0.08" depth="0.05" position="-0.15 0 0.1"></a-box>
+        <a-box color="black" width="0.25" height="0.08" depth="0.05" position="0.15 0 0.1"></a-box>
+        <a-box color="gray" width="0.1" height="0.05" depth="0.02" position="0 0 0.1"></a-box>
+      </a-entity>
+
+      <!-- ✨ Bonus efekt – oblak kolem hlavy -->
+      <a-entity mindar-face-target="anchorIndex: 168">
+        <a-torus color="#88ccff" radius="0.6" radius-tubular="0.02"
+          animation="property=rotation; to=0 360 0; loop=true; dur=4000"></a-torus>
       </a-entity>
     </a-scene>
   </body>
