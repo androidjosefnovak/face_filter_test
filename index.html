@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
   <head>
     <meta charset="utf-8">
-    <title>Face Filter - A-Frame + MindAR</title>
+    <title>MindAR Face Tracking Demo</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-aframe.prod.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
-      #example-scene { width: 100vw; height: 100vh; }
+      #scene { width: 100vw; height: 100vh; }
     </style>
   </head>
   <body>
@@ -18,19 +18,13 @@
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
-      id="example-scene"
+      id="scene"
     >
-      <!-- Kamera -->
       <a-camera active="false" position="0 0 0"></a-camera>
-      
-      <!-- 3D objekt připevněný na obličej -->
-      <a-entity mindar-face-target="anchorIndex: 1">
-        <!-- Např. 3D model brýlí -->
-        <a-entity
-          gltf-model="https://cdn.jsdelivr.net/gh/aframevr/assets@master/models/boombox/boombox.gltf"
-          position="0 0 0"
-          scale="0.02 0.02 0.02"
-        ></a-entity>
+
+      <!-- Obličejová maska připevněná na celou hlavu -->
+      <a-entity mindar-face-target="anchorIndex: 168">
+        <a-sphere color="red" opacity="0.5" radius="0.4" position="0 0 0"></a-sphere>
       </a-entity>
     </a-scene>
   </body>
